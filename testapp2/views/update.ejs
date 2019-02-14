@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+<script type="text/javascript">
+
+var vo = '<%- vo %>';
+console.log(vo);
+console.log(JSON.parse(vo));
+var voArr = JSON.parse(vo);
+
+window.onload = function() {
+  //JSON.parse( '<%- vo %>').id;
+  document.getElementById('s_id').innerText = voArr._id;;
+  document.getElementById('_id').value = voArr._id;
+  document.getElementById('id').value = voArr.id;
+  document.getElementById('pw').value = voArr.pw;
+}
+
+</script>
+  </head>
+  <body>
+
+    <a href="list">리스트로</a>
+    <a href="test">test</a>
+    <a href="users">users</a>
+<hr>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+    <form action="updateOK" method="post">
+      <label>_ID:</label><span id = "s_id">99</span><input type="hidden" id="_id" name="_id" value=""><br>
+      <label>ID:</label><input type="text" id="id" name="id" value=""><br>
+      <label>PW:</label><input type="text" id = "pw" name="pw" value=""><br>
+      <input type="submit" value="전송">
+    </form>
+
+  </body>
+
+</html>
